@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% with messages = get_flashed_messages(with_categories=true)%}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div style="margin: 10px;">
+        <div style="height: 30em; display: flex; align-items: center; justify-content: center">
+            <form action="/" method="post" style="width: 300px;">
+                <h2 style="margin: 10px;">Авторизация</h2>
+                <input type="text" name="name" placeholder="name" style="margin: 10px; width: 300px;">
+                <input type="text" name="mail" placeholder="mail" style="margin: 10px; width: 300px;">
+                <input type="submit" value="Отправить" style="margin: 10px; width: 300px;">
+            </form>
+        </div>
+    </div>
+{% endblock %}
