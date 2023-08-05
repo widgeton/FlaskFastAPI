@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ super() }} - Книги
+{% endblock %}
+
+
+{% block content %}
+    <div class="row">
+        {% for book in books %}
+            <p class="col-12 col-md-6">
+                Название: {{ book.title }}<br>
+                Год выхода: {{ book.publish_year }}<br>
+                Количество экземпляров: {{ book.amount }}<br>
+                Авторы:<br>
+                {% for author in book.authors %}
+                    "{{ author.name }} {{ author.surname }}"<br>
+                    Другие книги автора:<br>
+                    {% for b in author.books if b != book %}
+                        "{{ b.title }}"
+                    {% endfor %}<br>
+                {% endfor %}
+            </p>
+        {% endfor %}
+    </div>
+{% endblock %}
