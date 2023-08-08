@@ -32,7 +32,7 @@ def download(url):
     print(f'Время загрузки файла: {time.time() - start_time:.4f}')
 
 
-def start_threads(lst):
+def start(lst):
     start_time = time.time()
     for link in lst:
         process = Process(target=download, args=(link,))
@@ -56,4 +56,4 @@ if __name__ == '__main__':
     if urls.links:
         links = urls.links
 
-    start_threads(links)
+    start(links)

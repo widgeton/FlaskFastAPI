@@ -45,7 +45,7 @@ async def download(url):
 
 
 @check_time('Общее время загрузки')
-async def start_threads(lst):
+async def start(lst):
     tasks = []
     for link in lst:
         task = asyncio.create_task(download(link))
@@ -66,4 +66,4 @@ if __name__ == '__main__':
     if urls.links:
         links = urls.links
 
-    asyncio.run(start_threads(links))
+    asyncio.run(start(links))

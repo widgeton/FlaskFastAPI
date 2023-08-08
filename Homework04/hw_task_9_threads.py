@@ -44,7 +44,7 @@ def download(url):
 
 
 @check_time('Общее время загрузки')
-def start_threads(lst):
+def start(lst):
     for link in lst:
         thread = Thread(target=download, args=(link,))
         threads.append(thread)
@@ -66,4 +66,4 @@ if __name__ == '__main__':
     if urls.links:
         links = urls.links
 
-    start_threads(links)
+    start(links)
